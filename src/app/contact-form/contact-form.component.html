@@ -1,0 +1,23 @@
+<a routerLink="/home">Home</a>
+<p>contact-form works!</p>
+<form #contactForm="ngForm" (ngSubmit)="createContact(contactForm)">
+  <div class="mb-4">
+    <label class="form-label" for="name">Name</label>
+    <input class="form-control" type="test" id="name" name="name" ngModel required>
+    <div *ngIf="contactForm.controls?.['name']?.invalid && contactForm.controls?.['name']?.touched">
+      <p class="text-danger">Name is required</p>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label" for="email">email</label>
+    <input class="form-control" type="text" id="email" name="email" ngModel required email>
+    <div *ngIf="contactForm.controls?.['email']?.invalid && contactForm.controls?.['email']?.touched">
+      <p class="text-danger">Email is invalid</p>
+    </div>
+  </div>
+
+  <div>
+    <input type="submit" class="btn btn-primary" [disabled]="contactForm.invalid" value="Submit">
+  </div>
+</form>

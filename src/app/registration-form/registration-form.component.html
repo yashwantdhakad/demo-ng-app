@@ -1,0 +1,30 @@
+<a routerLink="/home">Home</a>
+<p>Registration Form</p>
+<form [formGroup]="registrationForm" (ngSubmit)="register()">
+  <div class="mb-4">
+    <label class="form-label" for="name">Name:</label>
+    <input class="form-control" type="text" id="name" formControlName="name">
+    <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched">
+      <p class="text-danger">Name is required.</p>
+    </div>
+  </div>
+  <div class="mb-4">
+    <label class="form-label" for="email">Email:</label>
+    <input class="form-control" type="email" id="email" formControlName="email">
+    <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+      <div *ngIf="registrationForm.get('email')?.errors?.['required']" class="text-danger">Email is required.</div>
+      <div *ngIf="registrationForm.get('email')?.errors?.['email']" class="text-danger">Invalid email format.</div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <label class="form-label" for="password">Password:</label>
+    <input class="form-control" type="password" id="password" formControlName="password">
+    <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+      <div *ngIf="registrationForm.get('password')?.errors?.['required']" class="text-danger">Password is required.</div>
+      <div *ngIf="registrationForm.get('password')?.errors?.['minlength']" class="text-danger">Password must be at least 6 characters.</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">Submit</button>
+  </div>
+</form>
