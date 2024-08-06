@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { CreateCustomerComponent } from './create-customer/create-customer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
     ContactFormComponent,
     RegistrationFormComponent,
     PostsComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    CreateCustomerComponent
   ],
   imports: [
     BrowserModule,

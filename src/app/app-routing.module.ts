@@ -6,6 +6,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { CreateCustomerComponent } from './create-customer/create-customer.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'create-product',
     component: CreateProductComponent
+  },
+  {
+    path: 'create-customer',
+    component: CreateCustomerComponent
   }
 ];
 

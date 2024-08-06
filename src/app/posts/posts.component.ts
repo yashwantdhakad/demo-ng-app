@@ -7,13 +7,21 @@ import { PostService } from '../post.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  data: any[] = [];
+  posts: any[] = [];
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-      this.postService.getPosts().subscribe(data => {
-        this.data = data;
+      // this.postService.getPosts().subscribe(data => {
+      //   this.data = data;
+      // })
+      this.postService.getPosts().subscribe({
+        next: (data) => {
+          this.posts = data;
+        },
+        error: (error) => {
+          console.log(error);
+        }
       })
 
   }
